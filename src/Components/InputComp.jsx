@@ -1,6 +1,8 @@
+import { useCallback } from "react";
+ 
 const Input = ({onNewPostAdded}) => {
-
-    const onNewPostEntered = (e) => {
+    console.log('shemovida')
+    const onNewPostEntered = useCallback((e) => {
         if (e.key === "Enter" && e.target.value !== "") {
             const post = {
                 title: e.target.value,
@@ -8,8 +10,8 @@ const Input = ({onNewPostAdded}) => {
             e.target.value = "";
             onNewPostAdded(post)
         }
-    }
-    
+    },[])
+ 
     return ( 
         <input 
         type="text" 
